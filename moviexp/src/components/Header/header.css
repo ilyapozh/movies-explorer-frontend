@@ -1,0 +1,13 @@
+@import url('../../blocks/header/__link/header__link.css');
+@import url('../../blocks/header/__link-container/header__link-container.css');
+@import url('../../blocks/header/__logo-container/header__logo-container.css');
+@import url('../../blocks/header/__logo/header__logo.css');
+@import url('../../blocks/header/__button-acc/header__button-acc.css');
+@import url('../../blocks/header/__link/__auth/header__link__auth_login.css');
+
+.header {
+    margin: 0 5.5%;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}

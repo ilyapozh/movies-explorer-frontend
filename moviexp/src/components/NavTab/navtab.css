@@ -1,0 +1,8 @@
+@import url('../../blocks/navtab/__link/navtab__link.css');
+@import url('../../blocks/navtab/__container/navtab__container.css');
+
+.navtab {
+    display: flex;
+    min-height: 66px;
+    background-color: #272727;
+}

@@ -4,6 +4,7 @@
 @import url('../../blocks/header/__logo/header__logo.css');
 @import url('../../blocks/header/__button-acc/header__button-acc.css');
 @import url('../../blocks/header/__link/__auth/header__link__auth_login.css');
+@import url('../../blocks/header/_promo/header_promo__background.css');
 
 .header {
     margin: 0 5.5%;

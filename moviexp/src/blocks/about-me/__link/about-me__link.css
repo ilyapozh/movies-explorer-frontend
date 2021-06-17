@@ -1,0 +1,9 @@
+.about-me__link {
+    text-decoration: none;
+    color: white;
+    margin: 0 10px;
+}
+
+.about-me__link:hover {
+    opacity: 0.5;
+}

@@ -1,0 +1,6 @@
+.techs__container {
+    list-style: none;
+    display: flex;
+    margin: 100px auto;
+    padding: 0;
+}

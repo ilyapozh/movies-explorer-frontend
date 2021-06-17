@@ -1,0 +1,5 @@
+.about-project__timing-table {
+    display: flex;
+    margin: 110px 70px 200px;
+    flex-direction: row;
+}

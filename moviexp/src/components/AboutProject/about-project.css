@@ -1,10 +1,22 @@
 @import url('../../blocks/about-project/__art-title/about-project__art-title.css');
-@import url('../../blocks/about-project/__article-container/about-project__article-container.css');
-@import url('../../blocks/about-project/__column-container/about-project__column-container.css');
-@import url('../../blocks/about-project/__container/about-project__container.css');
-@import url('../../blocks/about-project/__paragraph/about__paragraph.css');
+@import url('../../blocks/about-project/__paragraph/about-project__paragraph.css');
 @import url('../../blocks/about-project/__title/about-project__title.css');
+@import url('../../blocks/about-project/__table/about-project__table.css');
+@import url('../../blocks/about-project/__table-row/about-project__table-row.css');
+@import url('../../blocks/about-project/__timing-table-first-column/about-project__timing-table-first-column.css');
+@import url('../../blocks/about-project/__timing-table-second-column/about-project__timing-table-second-column.css');
+@import url('../../blocks/about-project/__timing-table-text/about-project__timing-table-text.css');
+@import url('../../blocks/about-project/__timing-table-text/__font-colour/about-project__timing-table-text__font-colour_grey.css');
+@import url('../../blocks/about-project/__timing-table-text/__back-colour/about-project__timing-table-text__back-colour_green.css');
+@import url('../../blocks/about-project/__timing-table-text/__back-colour/about-project__timing-table-text__back-colour_grey.css');
+@import url('../../blocks/about-project/__timing-table-second-column/about-project__timing-table-second-column.css');
+@import url('../../blocks/about-project/__timing-table-first-column/about-project__timing-table-first-column.css');
+@import url('../../blocks/about-project/__timing-table/about-project__timing-table.css');
 
 .about-project {
-    
+    display: flex;
+    flex-direction: column;
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: #202020;
 }

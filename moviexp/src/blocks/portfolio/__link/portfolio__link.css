@@ -1,0 +1,10 @@
+.portfolio__link {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #424242;
+    margin-bottom: 20px;
+}
+
+.portfolio__link:last-child {
+    border-bottom: 0;
+}

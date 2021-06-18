@@ -1,0 +1,14 @@
+@import url('../../blocks/portfolio/__arrow-pic/portfolio__arrow-pic.css');
+@import url('../../blocks/portfolio/__link-name/portfolio__link-name.css');
+@import url('../../blocks/portfolio/__link/portfolio__link.css');
+@import url('../../blocks/portfolio/__navtab/portfolio__navtab.css');
+@import url('../../blocks/portfolio/__title/portfolio__title.css');
+
+.portfolio {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    padding: 100px 0 100px 0;
+    background-color: #202020;
+    max-width: 1280px;
+}

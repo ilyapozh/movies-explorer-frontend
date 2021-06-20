@@ -1,0 +1,7 @@
+.searchForm__check-box-container {
+    margin: 40px auto 0;
+    padding-bottom: 70px;
+    max-width: 175px;
+    display: flex;
+    justify-content: space-between;
+}

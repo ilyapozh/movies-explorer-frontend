@@ -11,3 +11,31 @@
     margin: 0 auto;
     background-color: #202020;
 }
+
+.footer__title {
+    color: #8B8B8B;
+    font-size: 13px;
+    margin: 80px auto 20px;
+}
+
+.footer__link {
+    margin-right: 20px;
+}
+
+.footer__link:last-child {
+    margin-right: 0;
+}
+
+.footer__link:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 20px 0;
+    border-top: 1px solid #424242;
+    font-size: 13px;
+}

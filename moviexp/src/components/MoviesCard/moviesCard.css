@@ -1,0 +1,42 @@
+.moviesCard {
+    background-color: #222222;
+    border-radius: 6px;
+}
+
+.moviesCard__img {
+    max-width: 364px;
+}
+
+.moviesCard__container {
+    padding: 16px;
+}
+
+.moviesCard__name-cont {
+    display: flex;
+    justify-content: space-between;
+}
+
+.moviesCard__name {
+    font-weight: medium;
+    font-size: 13px;
+    margin: 0;
+}
+
+.moviesCard__like {
+    margin: 0;
+    padding: 0;
+    width: 21px;
+    height: 19px;
+    background-image: url(../../images/like-emty.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: inherit;
+    border: none;
+    outline:none;
+}
+
+.moviesCard__time {
+    margin: 15px 0 0 0;
+    color: #8B8B8B;
+    font-size: 11px;
+}

@@ -1,0 +1,5 @@
+@import url('../../blocks/navigation/__link/navigation__link.css');
+
+.navigation {
+    display: flex;
+}

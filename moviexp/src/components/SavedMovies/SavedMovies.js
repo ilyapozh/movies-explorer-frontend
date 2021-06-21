@@ -1,7 +1,8 @@
-import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import SearchForm from '../SearchForm/SearchForm';
 import './savedMovies.css';
+import MoviesCardList from '../MoviesCardList/MoviesCardList';
+import Footer from '../Footer/Footer';
 
 
 function SavedMovies() {
@@ -9,9 +10,9 @@ function SavedMovies() {
         <div className="savedMovies">
             <Header isLogged={true} />
             <SearchForm />
-            <SavedMovies />
+            <MoviesCardList isPrivate={true}/>
+            <Footer />
         </div>
-     
     );
   }
   

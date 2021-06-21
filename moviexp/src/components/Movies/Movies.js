@@ -11,7 +11,8 @@ function Movies(props) {
         <div className="movies">
             <Header isLogged={props.isLogged} />
             <SearchForm />
-            <MoviesCardList />
+            <MoviesCardList isPrivate={false}/>
+            <Footer />
         </div>
     );
   }

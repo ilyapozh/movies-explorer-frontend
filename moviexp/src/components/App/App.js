@@ -4,7 +4,10 @@ import Main from '../Main/Main';
 import {Switch, Route} from 'react-router-dom';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
-import Footer from '../Footer/Footer';
+import Account from '../Acount/Account';
+import Login from '../Login/Login';
+import Register from '../Register/Register';
+import NotFound from '../NotFound/NotFound';
 
 
 function App() {
@@ -12,8 +15,8 @@ function App() {
 
   return (
     <div className="app">
+      
       <Switch>
-
         <Route exact path="/">
           <Main isLogged={isLogged}/> 
         </Route>
@@ -23,15 +26,27 @@ function App() {
         </Route>
 
         <Route path="/saved-movies">
-          <SavedMovies />
+          <SavedMovies isLogged={true}/>
         </Route>
         
-        <Route>
-          
+        <Route path="/account">
+          <Account />
+        </Route>
+
+        <Route path="/login">
+          <Login />
+        </Route>
+
+        <Route path="/register">
+          <Register />
+        </Route>
+
+        <Route path="/">
+          <NotFound />
         </Route>
         
       </Switch>
-      <Footer />
+      
     </div>
   );
 }

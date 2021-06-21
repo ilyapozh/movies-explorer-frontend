@@ -7,6 +7,7 @@
 @import url('../../blocks/searchForm/__check-box-container/searchForm__check-box-container.css');
 
 .searchForm {
-    margin: 60px 0 0 0 ;
+    max-width: 1140px;
+    margin: 60px auto 0;
     border-bottom: 1px solid #424242;
 }

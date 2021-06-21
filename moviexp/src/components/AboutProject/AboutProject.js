@@ -2,7 +2,7 @@ import './about-project.css';
 
 function AboutProject() {
     return (
-        <div className="about-project" >
+        <div className="about-project" id="aboutProject">
             <h2 className="about-project__title">О проекте</h2>
             <table className="about-project__table">
                 <tr className="about-project__table-row">

@@ -4,7 +4,7 @@ import profilePicPath from '../../images/profile_vitalik.svg';
 
 function AboutMe() {
     return (
-        <div className="about-me"> 
+        <div className="about-me" id="aboutMe"> 
             <h2 className="main__subtitle">
                 Студент
             </h2>

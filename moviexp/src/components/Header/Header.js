@@ -14,8 +14,8 @@ function Header(props) {
             {props.isLogged ? 
                 <button className="header__button-acc"> Аккаунт </button> : 
                 <div className="header__link-container">
-                    <Link to="" className="header__link header__link__auth_login">Регистрация</Link>
-                    <Link to="" className="header__link header__link__auth_login">Войти</Link>
+                    <Link to="/register" className="header__link header__link__auth_login">Регистрация</Link>
+                    <Link to="/login" className="header__link header__link__auth_login">Войти</Link>
                 </div>
             }
         </header>

@@ -1,0 +1,84 @@
+.account {
+
+}
+
+.account__form-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 410px;
+    margin: 75px auto;
+}
+
+.account__title {
+    font-size: 24px;
+    font-weight: medium;
+    margin: 0 auto 125px;
+}
+
+.account__form {
+
+}
+
+.account__input-container {
+    font-size: 11px;
+}
+
+.account__name-cont {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #424242;
+}
+
+.account__name {
+    margin: 16px 0;
+}
+
+.account__name-input {
+    background-color: inherit;
+    border: none;
+    color: white;
+    text-align:right;
+}
+
+.account__email-cont {
+    display: flex;
+    justify-content: space-between;
+}
+
+.account__email {
+    margin: 16px 0;
+}
+
+.account__email-input {
+    background-color: inherit;
+    border: none;
+    text-align:right;
+    color: white;
+}
+
+.account__but-cont {
+    margin: 220px auto 30px;
+    max-width: 150px;
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    
+}
+
+::placeholder {
+    color: white;
+}
+
+.account__exit-but {
+    color: #EE3465;
+    background-color: #202020;
+    border: none;
+}
+
+.account__submit-but {
+    background-color: #202020;
+    color: white;
+    border: none;
+    margin-bottom: 16px;
+}
+

@@ -3,7 +3,7 @@ import './techs.css';
 
 function Techs(props) {
     return ( 
-        <div className="techs">
+        <div className="techs" id="techs">
             <h2 className="about-project__title">Технологии</h2>
             <h1 className="techs__title">7 технологий</h1>
             <p className="techs__paragraph">
@@ -20,7 +20,6 @@ function Techs(props) {
                 <li className="techs__tech-frame">MongoDB</li>
             </ul>
         </div>
-     
     );
   }
   

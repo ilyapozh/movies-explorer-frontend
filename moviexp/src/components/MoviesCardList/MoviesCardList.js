@@ -14,7 +14,10 @@ function MoviesCardList(props) {
                 <MoviesCard />
                 <MoviesCard />
             </ul>
-            <button className="moviesCardList__more-button">Еще</button>
+            {
+                !(props.isPrivate) &&
+                <button className="moviesCardList__more-button">Еще</button>
+            }
         </div>
      
     );

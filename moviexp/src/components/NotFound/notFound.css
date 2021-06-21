@@ -1,0 +1,32 @@
+.notFound {
+    display: flex;
+    margin: auto;
+}
+
+.notFound__cont {
+    margin: 240px auto;
+    text-align: center;
+}
+
+.notFound__title {
+    margin: 0;
+    font-size: 140px;
+}
+
+.notFound__sub-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.notFound__back-but {
+    background-color: #202020;
+    color: #4285F4;
+    border: none;
+    margin-top: 180px;
+}
+
+.notFound__back-but:hover {
+    
+    cursor: pointer;
+}

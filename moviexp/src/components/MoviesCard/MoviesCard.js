@@ -7,6 +7,11 @@ function onLikeClick(evt) {
     curLike.classList.toggle("moviesCard__like__color_pink")
 }
 
+function onDeleteClick(evt) {
+    evt.target.closest(".moviesCard").remove()
+
+}
+
 
 function MoviesCard(props) {
     return ( 
@@ -15,7 +20,10 @@ function MoviesCard(props) {
             <div className="moviesCard__container">
                 <div className="moviesCard__name-cont">
                     <h3 className="moviesCard__name">FilmName</h3>
-                    <button type="button" className="moviesCard__like" alt="like" onClick={onLikeClick}/>
+                    { props.isPrivate ? 
+                        <button type="button" className="moviesCard__delete" alt="like" onClick={onDeleteClick}/> :
+                        <button type="button" className="moviesCard__like" alt="like" onClick={onLikeClick}/>
+                    }
                 </div>
                 <p className="moviesCard__time">24:24</p>
             </div>

@@ -36,6 +36,24 @@
     outline:none;
 }
 
+.moviesCard__delete {
+    margin: 0;
+    padding: 0;
+    width: 8px;
+    height: 8px;
+    background-image: url(../../images/close-icon-menu.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: inherit;
+    border: none;
+    outline: none;
+}
+
+.moviesCard__delete:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
 .moviesCard__like__color_pink {
     background-image: url(../../images/like-pink.svg);
 }

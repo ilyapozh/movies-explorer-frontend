@@ -26,7 +26,20 @@
     margin-top: 180px;
 }
 
-.notFound__back-but:hover {
-    
+.notFound__back-but:hover {   
     cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+    .notFound__title {
+        font-size: 80px;
+    }
+
+    .notFound__sub-title {
+        font-size: 12px;
+    }
+
+    .notFound__back-but {
+        font-size: 12px;
+    }
 }

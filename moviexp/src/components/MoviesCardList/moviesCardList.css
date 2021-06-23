@@ -48,4 +48,9 @@
         grid-template-columns: repeat(1, 300px);
         grid-gap: 14px;
     }
+
+    .moviesCardList__more-button {
+        min-width: 240px;
+        
+    }
 }

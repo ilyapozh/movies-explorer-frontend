@@ -6,13 +6,13 @@ function MoviesCardList(props) {
     return (
         <div className="moviesCardList"> 
             <ul className="moviesCardList__list">
-                <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
+                <MoviesCard isPrivate={props.isPrivate}/>
+                <MoviesCard isPrivate={props.isPrivate}/>
+                <MoviesCard isPrivate={props.isPrivate}/>
+                <MoviesCard isPrivate={props.isPrivate}/>
+                <MoviesCard isPrivate={props.isPrivate}/>
+                <MoviesCard isPrivate={props.isPrivate}/>
+                <MoviesCard isPrivate={props.isPrivate}/>
             </ul>
             {
                 !(props.isPrivate) &&

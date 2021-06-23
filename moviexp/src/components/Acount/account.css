@@ -82,3 +82,8 @@
     margin-bottom: 16px;
 }
 
+@media screen and (max-width: 767px) {
+    .account__form-container {
+        width: 82%;
+    }
+}

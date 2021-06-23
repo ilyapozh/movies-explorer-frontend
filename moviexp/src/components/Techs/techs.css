@@ -1,12 +1,84 @@
-@import url('../../blocks/techs/__container/techs__container.css');
-@import url('../../blocks/techs/__paragraph/techs__paragraph.css');
-@import url('../../blocks/techs/__tech-frame/techs__tech-frame.css');
-@import url('../../blocks/techs/__title/techs__title.css');
-
 .techs {
     background-color: #272727;
     max-width: 1280px;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+}
+
+.techs__container {
+    list-style: none;
+    display: flex;
+    margin: 100px auto;
+    padding: 0;
+}
+
+.techs__paragraph {
+    max-width: 460px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 14px;
+}
+
+.techs__tech-frame {
+    background-color: #303030;
+    height: 60px;
+    width: 90px;
+    text-align: center;
+    line-height: 60px;
+    margin: 0 5px;
+    border-radius: 15px;
+}
+
+.techs__title {
+    color: white;
+    margin: auto;
+    padding: 20px 0 25px;
+    font-size: 50px;
+    line-height: 58px;
+    text-align: center;
+}
+
+@media screen and (max-width: 1023px) {
+    .techs__paragraph {
+        font-size: 12px;
+    }
+
+    .techs__tech-frame {
+        height: 57px;
+        width: 84px;
+    }
+
+    .techs__container {
+        margin: 70px auto;
+    }
+
+    .techs__title {
+        padding: 0 0 15px;
+        
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .techs__paragraph {
+        font-size: 11px;
+        width: 90%;
+    }
+
+    .techs__tech-frame {
+        height: 57px;
+        width: 84px;
+    }
+
+    .techs__container {
+        margin: 50px auto 70px;
+        display: grid;
+        grid-template-columns: repeat(2, 84px);
+        grid-gap: 10px;
+    }
+
+    .techs__title {
+        padding: 0 0 15px;
+        font-size: 30px;
+    }
 }

@@ -1,6 +1,7 @@
 .moviesCard {
     background-color: #222222;
     border-radius: 6px;
+    width: fit-content;
 }
 
 .moviesCard__img {
@@ -35,8 +36,36 @@
     outline:none;
 }
 
+.moviesCard__like__color_pink {
+    background-image: url(../../images/like-pink.svg);
+}
+
+.moviesCard__like:hover {
+    opacity: 0.5;
+    cursor: pointer;
+} 
+
 .moviesCard__time {
     margin: 15px 0 0 0;
-    color: #8B8B8B;
+    color: #8B8B8B; 
     font-size: 11px;
+}
+
+@media screen and (max-width: 1150px) {
+    .moviesCard__img {
+        max-width: 339px;
+    }    
+}
+
+
+@media screen and (max-width: 767px) {
+    .moviesCard__img {
+        max-width: 300px;
+    }    
+    .moviesCard__time {
+        font-size: 10px;
+    }
+    .moviesCard__name {
+        font-size: 12px;
+    }
 }

@@ -1,14 +1,99 @@
-@import url('../../blocks/portfolio/__arrow-pic/portfolio__arrow-pic.css');
-@import url('../../blocks/portfolio/__link-name/portfolio__link-name.css');
-@import url('../../blocks/portfolio/__link/portfolio__link.css');
-@import url('../../blocks/portfolio/__navtab/portfolio__navtab.css');
-@import url('../../blocks/portfolio/__title/portfolio__title.css');
-
 .portfolio {
     display: flex;
     margin: 0 auto;
     flex-direction: column;
-    padding: 100px 0 100px 0;
+    padding: 100px 0;
     background-color: #202020;
     max-width: 1280px;
+}
+
+.portfolio__arrow-pic {
+    height: 60px;
+    width: 29px;
+}
+
+.portfolio__link {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #424242;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+
+.portfolio__link:hover {
+    opacity: 0.5;
+}
+
+.portfolio__link:last-child {
+    border-bottom: 0;
+}
+
+.portfolio__link-name {
+    font-size: 30px;
+    font-weight: normal;
+    margin: 0;
+    text-align: center;
+    line-height: 60px;
+}
+
+.portfolio__navtab {
+    margin: 50px 70px 0;
+}
+
+.portfolio__title {
+    color: #8B8B8B;
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0 70px;
+}
+
+
+@media screen and (max-width: 1023px) { 
+    .portfolio {
+        padding: 90px 0;
+    }
+    .portfolio__title {
+        color: #8B8B8B;
+        font-size: 18px;
+        font-weight: normal;
+        margin: 0 6.5%;
+    }
+
+    .portfolio__link-name {
+        font-size: 28px;
+        line-height: 50px;
+    }
+
+    .portfolio__navtab {
+        margin: 50px 6.5% 0;
+    }
+}
+
+@media screen and (max-width: 1023px) { 
+    .portfolio {
+        padding: 70px 0;
+    }
+    .portfolio__title {
+        color: #8B8B8B;
+        font-size: 14px;
+        font-weight: normal;
+        margin: 0 6.5%;
+    }
+
+    .portfolio__link-name {
+        font-size: 18px;
+        line-height: 60px;
+    }
+
+    .portfolio__navtab {
+        margin: 50px 5.5% 0;
+    }
+
+    .portfolio__arrow-pic {
+        height: 28px;
+        width: 18px;
+        padding-top: 15px;
+    }
 }

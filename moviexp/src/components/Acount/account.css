@@ -65,7 +65,7 @@
     
 }
 
-::placeholder {
+.account__name-input::placeholder {
     color: white;
 }
 

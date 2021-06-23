@@ -1,5 +1,12 @@
 import './moviesCard.css';
-import imgPath from '../../images/moviesPics/pic8.svg'
+import imgPath from '../../images/moviesPics/pic8.svg';
+
+
+function onLikeClick(evt) {
+    const curLike = evt.target;
+    curLike.classList.toggle("moviesCard__like__color_pink")
+}
+
 
 function MoviesCard(props) {
     return ( 
@@ -8,13 +15,12 @@ function MoviesCard(props) {
             <div className="moviesCard__container">
                 <div className="moviesCard__name-cont">
                     <h3 className="moviesCard__name">FilmName</h3>
-                    <button className="moviesCard__like" alt="like"/>
+                    <button type="button" className="moviesCard__like" alt="like" onClick={onLikeClick}/>
                 </div>
                 <p className="moviesCard__time">24:24</p>
             </div>
         </li>
-     
     );
   }
   
-  export default MoviesCard;
+export default MoviesCard;

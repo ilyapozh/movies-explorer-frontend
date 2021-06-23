@@ -11,11 +11,11 @@ function Login(props) {
             <h1 className="login__title">Добро пожаловать!</h1>
             <form className="login__form">
                 <div className="login__input-cont">
-                    <label className="login__input-label" for="name-input">Имя</label>
+                    <label className="login__input-label" htmlFor="name-input">Имя</label>
                     <input type="text" className="login__input" placeholder="Имя" name="name-input" />
-                    <label className="login__input-label" for="email-input">E-mail</label>
+                    <label className="login__input-label" htmlFor="email-input">E-mail</label>
                     <input type="text" className="login__input" placeholder="E-mail" name="email-input"/>
-                    <label className="login__input-label" for="password-input">Пароль</label>
+                    <label className="login__input-label" htmlFor="password-input">Пароль</label>
                     <input type="text" className="login__input" placeholder="Пароль" name="password-input"/>
                     <span className="login__error"></span>
                 </div>

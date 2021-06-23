@@ -7,15 +7,15 @@ function Portfolio(props) {
         <div className="portfolio">
             <h1 className="portfolio__title">Портфолио</h1>
             <nav className="portfolio__navtab">
-                <a className="portfolio__link" href>
+                <a className="portfolio__link" href="https://ilyapozh.github.io/how-to-learn/">
                     <h2 className="portfolio__link-name">Статичный сайт</h2>
                     <img className="portfolio__arrow-pic" src={arrowPicPath} alt="arrow-pic" />
                 </a>
-                <a className="portfolio__link" href>
+                <a className="portfolio__link" href="https://ilyapozh.github.io/russian-travel/">
                     <h2 className="portfolio__link-name">Адаптивный сайт</h2>
                     <img className="portfolio__arrow-pic" src={arrowPicPath} alt="arrow-pic" />
                 </a>
-                <a className="portfolio__link" href>
+                <a className="portfolio__link" href="https://ilya-mesto.students.nomoredomains.icu/">
                     <h2 className="portfolio__link-name">Одностраничное приложение</h2>
                     <img className="portfolio__arrow-pic" src={arrowPicPath} alt="arrow-pic" />
                 </a>

@@ -11,11 +11,11 @@ function Account(props) {
                 <form className="account__form">
                     <div className="account__input-container">
                         <div className="account__name-cont">
-                            <label for="name-input" className="account__name">Имя</label>
+                            <label htmlFor="name-input" className="account__name">Имя</label>
                             <input className="account__name-input" type="text" placeholder="Илья" name="name-input"/>
                         </div>
                         <div className="account__email-cont">
-                            <label for="email-input" className="account__email">Email</label>
+                            <label htmlFor="email-input" className="account__email">Email</label>
                             <input className="account__email-input" type="text" placeholder="email@email.com" name="email-input"/>
                         </div>
                     </div>

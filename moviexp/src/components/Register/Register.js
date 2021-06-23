@@ -11,7 +11,6 @@ function Register(props) {
             <h1 className="register__title">Рады видеть!</h1>
             <form className="register__form">
                 <div className="register__input-cont">
-                    
                     <label className="register__input-label" for="email-input">E-mail</label>
                     <input type="text" className="register__input" placeholder="E-mail" name="email-input"/>
                     <label className="register__input-label" for="password-input">Пароль</label>

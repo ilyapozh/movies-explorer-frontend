@@ -1,3 +1,17 @@
 .main {
     
 }
+
+.main__subtitle {
+    margin: 110px 5.5% 70px;
+    padding-bottom: 23px;
+    border-bottom: 1px solid;
+    font-size: 22px;
+}
+
+@media screen and (max-width: 1023px) {
+    .main__subtitle {
+        margin: 90px 6.5% 70px;
+
+    }
+}

@@ -18,7 +18,7 @@ function Register(props) {
                 </div>
                 <div className="register__but-container">
                     <button className="register__submit-but">Войти </button>
-                    <p className="register__text">Eще не зарегестрированы?<Link className="register__register-link"> Зарегестрироваться</Link></p>
+                    <p className="register__text">Eще не зарегестрированы?<Link className="register__register-link" to="/login"> Зарегестрироваться</Link></p>
                 </div>
             </form>
         </div>

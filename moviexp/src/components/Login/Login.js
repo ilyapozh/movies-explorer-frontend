@@ -21,7 +21,7 @@ function Login(props) {
                 </div>
                 <div className="login__but-container">
                     <button className="login__submit-but">Зарегестрироваться</button>
-                    <p className="login__text">Уже зарегестрированы?<Link className="login__login-link"> Войти </Link></p>
+                    <p className="login__text">Уже зарегестрированы?<Link className="login__login-link" to="/register"> Войти </Link></p>
                 </div>
             </form>
             

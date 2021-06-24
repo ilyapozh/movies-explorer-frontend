@@ -31,7 +31,12 @@
     color: white;
     font-size: 13px;
     width: 50%;
-    outline: none;
+    outline:none;
+}
+
+.searchForm__input:focus {
+  outline-style: solid;
+  outline-color: grey;
 }
 
 .searchForm__input-container {
@@ -54,6 +59,7 @@
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 40px;
+    border: none;
 }
 
 .searchForm__submit-button:hover {

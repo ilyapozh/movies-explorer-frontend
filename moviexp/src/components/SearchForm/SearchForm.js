@@ -4,9 +4,9 @@ import './searchForm.css';
 function SearchForm() {
     return ( 
         <div className="searchForm">
-            <form className="searchForm__form">
+            <form className="searchForm__form" >
                 <div className="searchForm__input-container">
-                    <input className="searchForm__input" placeholder="Фильмы"/>
+                    <input className="searchForm__input" placeholder="Фильмы" required/>
                     <button type="submit" className="searchForm__submit-button" />
                 </div>
             </form>

@@ -1,0 +1,159 @@
+.about-me {
+    max-width: 1280px;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    background-color: #202020;
+}
+
+.about-me__age {
+    font-size: 18px;
+    margin: 18px 0 0 0;
+    font-weight: normal;
+}
+
+.about-me__container {
+    display: flex;
+    margin: 0 5.5%;
+    justify-content: space-between;
+}
+
+.about-me__link {
+    text-decoration: none;
+    color: white;
+    margin: 0 5px;
+    font-size: 14px;
+}
+
+.about-me__link:hover {
+    opacity: 0.5;
+}
+
+.about-me__link-container {
+    margin: 80px 0 0 0;
+ }
+
+.about-me__paragraph {
+    margin: 26px 0 0 0;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.about-me__text-container {
+    max-width: 600px;
+}
+
+.about-me__profile-pic {
+    height: 327px;
+    width: 270px;
+}
+
+.main__subtitle {
+    margin: 110px 5.5% 70px;
+    padding-bottom: 23px;
+    border-bottom: 1px solid;
+    font-size: 22px;
+}
+
+.about-me__title {
+    margin: 0;
+    padding: 0;
+    font-size: 50px;
+}
+
+@media screen and (max-width: 1023px) {
+    .main__subtitle {
+        margin: 90px 6.5% 60px;
+    }
+
+    .about-me__container {
+        width: 93%;
+        margin: auto;
+    }
+
+    .about-me__text-container {
+        max-width: 47%;
+    }
+
+    .about-me__title {
+        font-size: 40px;
+    }
+
+    .about-me__age {
+        font-size: 12px;
+        margin: 16px 0 0 0;
+    }
+
+    .about-me__paragraph {
+        margin: 20px 0 0 0;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .about-me__link-container {
+        margin: 50px 0 0 0;
+    }
+
+    .about-me__profile-pic {
+        height: 307px;
+        width: 255px;
+    }
+
+    .about-me__age {
+        font-size: 12px;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    .main__subtitle {
+        margin: 90px 6.5% 60px;
+    }
+
+    .about-me__container {
+        flex-direction: column-reverse;
+    }
+
+    .about-me__text-container {
+        max-width: 100%;
+        margin-top: 40px;
+        
+    }
+
+    .about-me__title {
+        font-size: 30px;
+    }
+
+    .about-me__age {
+        font-size: 11px;
+        margin: 16px 0 0 0;
+    }
+
+    .about-me__paragraph {
+        margin: 20px 0 0 0;
+        font-size: 11px;
+        line-height: 18px;
+    }
+
+    .about-me__link-container {
+        margin: 40px 0 0 0;
+    }
+
+    .about-me__profile-pic {
+        height: 352px;
+        width: 292px;
+        margin: 0 auto;
+    }
+
+    .about-me__age {
+        font-size: 12px;
+    }
+
+    .about-me__link {
+        text-decoration: none;
+        color: white;
+        margin: 0 5px;
+        font-size: 11px;
+    }
+
+}

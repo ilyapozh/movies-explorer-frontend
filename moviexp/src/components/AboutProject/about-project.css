@@ -1,0 +1,127 @@
+.about-project {
+    display: flex;
+    flex-direction: column;
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: #202020;
+}
+
+.about-project__art-title {
+    text-align: left;
+    padding: 0;
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0 0 26px 0;
+}
+
+.about-project__paragraph {
+    padding-right: 5.5%;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.about-project__table {
+    margin: 0 5.5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-project__table-row {
+    width: 48%;
+}
+
+.about-project__timing-table {
+    display: flex;
+    margin: 110px 5.5%;
+    flex-direction: row;
+}
+
+.about-project__timing-table-first-column {
+    width: 20%;
+}
+
+.about-project__timing-table-second-column {
+    width: 80%;
+}
+
+.about-project__timing-table-text {
+    font-size: 14px;
+    text-align: center;
+    padding: 11px 0;
+    margin: 0;
+}
+
+.about-project__timing-table-text__back-colour_green {
+    background-color: #3DDC84;
+    color: black;
+}
+
+.about-project__timing-table-text__back-colour_grey {
+    background-color: #303030;
+}
+
+.about-project__title {
+    margin: 110px 5.5% 70px;
+    padding-bottom: 23px;
+    border-bottom: 1px solid;
+    font-size: 22px;
+}
+
+@media screen and (max-width: 1023px) {
+    .about-project__table {
+        margin: 0 6.5%;
+    }
+    .about-project__title {
+        margin: 90px 6.5% 70px;
+        font-size: 22px;
+    }
+    .about-project__timing-table {
+        margin: 90px 6.5% 90px;
+    }
+    .about-project__paragraph {   
+        font-size: 12px;
+    }
+    
+}
+
+@media screen and (max-width: 426px) {
+    
+    .about-project__table {
+        margin: 0 6.5%;
+        flex-direction: column;
+    }
+
+    .about-project__table-row {
+        width: 100%;
+    }
+
+    .about-project__table-row:last-child {
+        margin-top: 55px;
+    }
+    
+    .about-project__title {
+        margin: 70px 6.5% 60px;
+        font-size: 18px;
+    }
+
+    .about-project__timing-table {
+        margin: 60px 6.5% 90px;
+    }
+
+    .about-project__paragraph {    
+        font-size: 11px;
+    }
+
+    .about-project__art-title {
+        font-size: 18px;
+        margin: 0 0 16px 0;
+    }
+
+    .about-project__timing-table-text {
+        font-size: 10px;
+        text-align: center;
+        padding: 11px 0;
+        margin: 0;
+    }
+   
+}

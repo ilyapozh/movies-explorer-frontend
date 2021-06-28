@@ -1,0 +1,24 @@
+.navigation {
+    display: flex;
+}
+
+.navigation__link {
+    text-decoration: none;
+    color: white;
+    font-size: 13px;
+    margin: 0 8px;
+    display: flex;
+    align-self: center;
+}
+
+.navigation__link:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1023px) {
+    .navigation {
+        visibility: hidden;
+    }
+    
+}

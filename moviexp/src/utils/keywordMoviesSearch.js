@@ -1,7 +1,3 @@
-// function forEachLoop(keyword) {
-    
-
-// }
 
 const keywordMoviesSearch = (keyword) => {
     

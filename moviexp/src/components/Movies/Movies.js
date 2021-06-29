@@ -14,7 +14,14 @@ function Movies(props) {
             <Header isLogged={props.isLogged} />
             <SearchForm onKeywordSubmit={props.onKeywordSubmit}/>
             <Preloader isPreloaderIsActive={props.isPreloaderIsActive}/>
-            <MoviesCardList isPrivate={false} movies={props.movies}/>
+            <MoviesCardList 
+                isPrivate={false} 
+                movies={props.movies} 
+                onMore={props.onMore} 
+                moreButton={props.moreButton}
+                notFoundTitle={props.notFoundTitle}
+                checkMoviesLS={props.checkMoviesLS}
+            />
             <Footer />
         </div>
     );

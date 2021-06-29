@@ -8,21 +8,39 @@ import Account from '../Acount/Account';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import NotFound from '../NotFound/NotFound';
+import { fetchData } from '../../utils/MoviesApi';
+import {keywordMoviesSearch} from '../../utils/keywordMoviesSearch';
 
 
 function App() {
-  const [isLogged, setIsLogged] = React.useState(false);
+  const [moviesArray, setMoviesArray] = React.useState([]);
+  const [isPreloaderIsActive, setPreloaderActivity] = React.useState(false);
+
+
+  function onKeywordSubmit(keyword) {
+    setPreloaderActivity(true);
+    fetchData(keyword)
+      .then((res) => {
+        setMoviesArray(res)
+      })
+      .then(() => setPreloaderActivity(false))
+      
+      .catch(err => console.log(err));
+    
+    
+  }
+
 
   return (
     <div className="app">
       
       <Switch>
         <Route exact path="/">
-          <Main isLogged={isLogged}/> 
+          <Main isLogged={false}/> 
         </Route>
 
         <Route path="/movies">
-          <Movies isLogged={true} />
+          <Movies isLogged={true} onKeywordSubmit={onKeywordSubmit} isPreloaderIsActive={isPreloaderIsActive} movies={moviesArray}/>
         </Route>
 
         <Route path="/saved-movies">

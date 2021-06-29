@@ -1,5 +1,5 @@
 import './moviesCard.css';
-import imgPath from '../../images/moviesPics/pic8.svg';
+// import imgPath from '../../images/moviesPics/pic8.svg';
 
 
 function onLikeClick(evt) {
@@ -16,16 +16,16 @@ function onDeleteClick(evt) {
 function MoviesCard(props) {
     return ( 
         <li className="moviesCard">
-            <img src={imgPath} alt="movieimg" className="moviesCard__img"/>
+            <img src={`https://api.nomoreparties.co${props.imgPath}`} alt="movieimg" className="moviesCard__img"/>
             <div className="moviesCard__container">
                 <div className="moviesCard__name-cont">
-                    <h3 className="moviesCard__name">FilmName</h3>
+                    <h3 className="moviesCard__name">{props.movieName}</h3>
                     { props.isPrivate ? 
                         <button type="button" className="moviesCard__delete" alt="like" onClick={onDeleteClick}/> :
                         <button type="button" className="moviesCard__like" alt="like" onClick={onLikeClick}/>
                     }
                 </div>
-                <p className="moviesCard__time">24:24</p>
+                <p className="moviesCard__time">{props.duration}</p>
             </div>
         </li>
     );

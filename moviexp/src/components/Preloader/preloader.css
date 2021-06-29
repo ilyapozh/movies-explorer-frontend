@@ -39,6 +39,7 @@
     }
 }
 
+
 .preloader {
     display: flex;
     align-items: center;
@@ -47,6 +48,11 @@
     height: 100%;
     z-index: 10;
     padding: 20px;
+}
+
+.preloader__disable {
+    visibility: hidden;
+    display: none;
 }
 
 .preloader__container {

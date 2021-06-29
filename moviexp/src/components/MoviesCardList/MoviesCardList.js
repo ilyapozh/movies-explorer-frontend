@@ -6,13 +6,11 @@ function MoviesCardList(props) {
     return (
         <div className="moviesCardList"> 
             <ul className="moviesCardList__list">
-                <MoviesCard isPrivate={props.isPrivate}/>
-                <MoviesCard isPrivate={props.isPrivate}/>
-                <MoviesCard isPrivate={props.isPrivate}/>
-                <MoviesCard isPrivate={props.isPrivate}/>
-                <MoviesCard isPrivate={props.isPrivate}/>
-                <MoviesCard isPrivate={props.isPrivate}/>
-                <MoviesCard isPrivate={props.isPrivate}/>
+                {
+                    (props.movies).map( movie => 
+                        <MoviesCard key={movie.id} movieName={movie.nameRU} duration={movie.duration} imgPath={movie.image.url}/>
+                    )
+                }
             </ul>
             {
                 !(props.isPrivate) &&

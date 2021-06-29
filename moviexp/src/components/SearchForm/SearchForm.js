@@ -1,12 +1,26 @@
+import React from 'react';
 import './searchForm.css';
+// import {fetchData} from '../../utils/MoviesApi';
 
+function SearchForm(props) {
 
-function SearchForm() {
+    const [keyword, setKeyword] = React.useState('');
+
+    function handleInputChange(evt) {
+        setKeyword(evt.target.value)
+    }
+
+    function handleSubmit(evt) {
+        evt.preventDefault();
+
+        props.onKeywordSubmit(keyword);
+    }
+
     return ( 
         <div className="searchForm">
-            <form className="searchForm__form" >
+            <form className="searchForm__form" onSubmit={handleSubmit}>
                 <div className="searchForm__input-container">
-                    <input className="searchForm__input" placeholder="Фильмы" required/>
+                    <input className="searchForm__input" placeholder="Фильмы" onChange={handleInputChange} required/>
                     <button type="submit" className="searchForm__submit-button" />
                 </div>
             </form>

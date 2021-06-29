@@ -5,7 +5,8 @@
 }
 
 .moviesCard__img {
-    max-width: 364px;
+    width: 364px;
+    height: 204px;
 }
 
 .moviesCard__container {

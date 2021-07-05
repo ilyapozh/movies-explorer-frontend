@@ -32,6 +32,7 @@
     padding-left: 15px;
     line-height: 45px;
     margin-bottom: 35px;
+    color: white;
 }
 
 .register__title {
@@ -66,6 +67,6 @@
 
 @media screen and (max-width: 767px) {
     .register {
-        width: 81%;
+        width: 80%;
     }
 }

@@ -1,5 +1,20 @@
+const checkLikedMovies = (moviesArray, savedMoviesArray) => {
 
-const keywordMoviesSearch = (keyword) => {
+    const likedMoviesArr = moviesArray.map( movie => {
+        Object.assign(movie, {isLiked: false})
+        savedMoviesArray.forEach( savedMovie => {
+            if (savedMovie.movieId === movie.id) {
+                return Object.assign(movie, {isLiked: true})
+            } 
+        })
+        return movie
+    })
+
+    return likedMoviesArr
+    
+}
+
+const keywordMoviesSearch = (keyword, savedMoviesArray) => {
     
     const searchParams = ["nameRU", "nameEN", "director", "country", "year"];
     
@@ -18,10 +33,13 @@ const keywordMoviesSearch = (keyword) => {
         });
     });
 
+    let checkedLikedMovieArr = checkLikedMovies(resultMoviesArray, savedMoviesArray);
     
-    localStorage.setItem("resSearchMoviesArray", JSON.stringify(resultMoviesArray))
-    return resultMoviesArray;
+    localStorage.setItem("resSearchMoviesArray", JSON.stringify(checkedLikedMovieArr));
+
+    return checkedLikedMovieArr;
+
 }
 
 
-export {keywordMoviesSearch}
+export {keywordMoviesSearch, checkLikedMovies}

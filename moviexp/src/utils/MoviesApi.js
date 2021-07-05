@@ -1,6 +1,6 @@
 import {keywordMoviesSearch} from '../utils/keywordMoviesSearch';
 
-function fetchData(keyword) {
+function fetchData(keyword, savedMoviesArray) {
     return fetch('https://api.nomoreparties.co/beatfilm-movies', {})
         .then(res => {
             if (res.ok) {
@@ -16,7 +16,7 @@ function fetchData(keyword) {
         })
         .then((res) => {
             const loweredKeyword = keyword.toLowerCase();
-            const resultArray = keywordMoviesSearch(loweredKeyword);
+            const resultArray = keywordMoviesSearch(loweredKeyword, savedMoviesArray);
             return resultArray
         })
         

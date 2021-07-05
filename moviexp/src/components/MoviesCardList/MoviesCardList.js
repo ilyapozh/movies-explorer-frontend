@@ -4,28 +4,10 @@ import React from 'react';
 
 
 function MoviesCardList(props) {
-
-    // const [initialMoviesArray, setInitialMoviesArray] = React.useState([]);
     
-    // const {checkMoviesLS} = props;
-    
-    function callbackUseEffect(props) {
-        console.log(props)
-        const {checkMoviesLS} = props;
-        return checkMoviesLS
-    }
-
-    React.useEffect(() => {
-        const checkMoviesLS = callbackUseEffect(props);
-        checkMoviesLS();
-    }, [])
-
-
-
     function handleMoreClick() {
         props.onMore()
     }
-
 
     return (
         <div className="moviesCardList"> 
@@ -34,10 +16,17 @@ function MoviesCardList(props) {
                 { 
                     (props.movies).map( (movie, index) => {
                             return <MoviesCard 
-                                        key={index} 
+                                        isPrivate={props.isPrivate}
+                                        key={index}
+                                        isLiked={movie.isLiked} 
                                         movieName={movie.nameRU} 
                                         duration={movie.duration} 
-                                        imgPath={movie.image.url}
+                                        imgPath= {
+                                            props.isPrivate ? (movie.image).replace('https://api.nomoreparties.co', '') :
+                                            (movie.image.url)
+                                        }
+                                        onMovieLike={props.onMovieLike}
+                                        onDelete={props.onDelete}
                             />
                         }
                     )

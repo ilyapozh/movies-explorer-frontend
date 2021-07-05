@@ -21,6 +21,8 @@ function Movies(props) {
                 moreButton={props.moreButton}
                 notFoundTitle={props.notFoundTitle}
                 checkMoviesLS={props.checkMoviesLS}
+                onMovieLike={props.onMovieLike}
+                
             />
             <Footer />
         </div>

@@ -1,3 +1,4 @@
+import React from 'react';
 import Header from '../Header/Header';
 import SearchForm from '../SearchForm/SearchForm';
 import './savedMovies.css';
@@ -5,12 +6,18 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 
 
-function SavedMovies() {
+function SavedMovies(props) {
+
+
     return ( 
         <div className="savedMovies">
             <Header isLogged={true} />
             <SearchForm />
-            <MoviesCardList isPrivate={true}/>
+            <MoviesCardList 
+                isPrivate={true}
+                movies={props.movies} 
+                onDelete={props.onDelete}
+            />
             <Footer />
         </div>
     );

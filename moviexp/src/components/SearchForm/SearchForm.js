@@ -5,6 +5,7 @@ import './searchForm.css';
 function SearchForm(props) {
 
     const [keyword, setKeyword] = React.useState('');
+    const [checkBoxState, setCheckBoxState] = React.useState(false)
 
     function handleInputChange(evt) {
         setKeyword(evt.target.value)
@@ -14,6 +15,11 @@ function SearchForm(props) {
         evt.preventDefault();
 
         props.onKeywordSubmit(keyword);
+    }
+
+    const handleCheckBoxSubmit = ({target: {checked}}) => {
+        props.onCheckBox(checked)
+        setCheckBoxState(checked)
     }
 
     return ( 
@@ -26,7 +32,7 @@ function SearchForm(props) {
             </form>
             <div className="searchForm__check-box-container">
                 <label className="searchForm__form-switch">
-                    <input type="checkbox" />
+                    <input type="checkbox" checked={checkBoxState} onChange={handleCheckBoxSubmit}/>
                     <i className="searchForm__box"></i>
                     <label className="searchForm__label">Короткометражки</label>
                 </label>

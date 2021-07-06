@@ -12,7 +12,7 @@ function Movies(props) {
     return ( 
         <div className="movies">
             <Header isLogged={props.isLogged} />
-            <SearchForm onKeywordSubmit={props.onKeywordSubmit}/>
+            <SearchForm onKeywordSubmit={props.onKeywordSubmit} onCheckBox={props.onCheckBox}/>
             <Preloader isPreloaderIsActive={props.isPreloaderIsActive}/>
             <MoviesCardList 
                 isPrivate={false} 

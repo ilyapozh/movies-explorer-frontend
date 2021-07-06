@@ -12,11 +12,15 @@ function SavedMovies(props) {
     return ( 
         <div className="savedMovies">
             <Header isLogged={true} />
-            <SearchForm />
+            <SearchForm 
+                onCheckBox={props.onCheckBox}
+                onKeywordSubmit={props.onKeywordSubmit}
+            />
             <MoviesCardList 
                 isPrivate={true}
                 movies={props.movies} 
                 onDelete={props.onDelete}
+                
             />
             <Footer />
         </div>

@@ -1,5 +1,5 @@
 const checkLikedMovies = (moviesArray, savedMoviesArray) => {
-
+    if (moviesArray === null) return []
     const likedMoviesArr = moviesArray.map( movie => {
         Object.assign(movie, {isLiked: false})
         savedMoviesArray.forEach( savedMovie => {

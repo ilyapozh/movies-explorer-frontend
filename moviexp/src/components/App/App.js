@@ -2,7 +2,7 @@ import './App.css';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import React from 'react';
 import Main from '../Main/Main';
-import {Switch, Route, useHistory} from 'react-router-dom';
+import {Switch, Route, useHistory, Redirect} from 'react-router-dom';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Account from '../Acount/Account';
@@ -10,6 +10,7 @@ import Login from '../Login/Login';
 import Register from '../Register/Register';
 import NotFound from '../NotFound/NotFound';
 import { fetchData } from '../../utils/MoviesApi';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import {
   putMovieLike, 
   fetchSavedMovies, 
@@ -38,9 +39,7 @@ function App() {
 
 
   React.useEffect(() => {
-
     const token = localStorage.getItem('token');
-
     if (token) {
       setIsLogged(true);
       getUserInfo()
@@ -49,24 +48,45 @@ function App() {
         })
         .catch(err => console.log(err))
 
-        setLoginError('')
-        setRegisterError('')
+      // setLoginError('')
+      // setRegisterError('')
     
-        fetchSavedMovies()
-          .then((res) => {
-            const {data} = res;
-            const currentMoviesArray = JSON.parse(localStorage.getItem('resSearchMoviesArray'));
-            setSavedMoviesArray(data)
-            return (checkLikedMovies(currentMoviesArray, data))
-          })
-          .then((arr) => {
-            checkWindowRes(arr);
-          })
+      fetchSavedMovies()
+        .then((res) => {
+          const {data} = res;
+          const currentMoviesArray = JSON.parse(localStorage.getItem('resSearchMoviesArray'));
+          setSavedMoviesArray(data)
+          return (checkLikedMovies(currentMoviesArray, data))
+        })
+        .then((arr) => {
+          checkWindowRes(arr);
+          history.push('/movies')
+        })
+        .catch((err) => console.log(err))
+    }
+  }, [history]);
+
+  
+  React.useEffect(() => {
+    
+    if (isLogged) {
+      
+      fetchSavedMovies()
+        .then((res) => {
+          const {data} = res;
+          const currentMoviesArray = JSON.parse(localStorage.getItem('resSearchMoviesArray'));
+          setSavedMoviesArray(data)
+          return (checkLikedMovies(currentMoviesArray, data))
+        })
+        .then((arr) => {
+          checkWindowRes(arr);
+          history.push('/movies')
+        })
+        .catch((err) => console.log(err))
     }
 
-    
+  }, [isLogged]);
 
-  }, []);
 
  
   function checkWindowRes(currentMoviesArray) {
@@ -313,19 +333,21 @@ function App() {
   function handleAccountSubmit(data) {
     updateUserInfo(data)
       .then((res) => {
-        console.log(res)
         setAccMsg(`Вы поменяли данные на: ${res.data.name} ; ${res.data.email}`)
         history.push('/movies')
       })
       .catch((err) => {
-        console.log(err)
+        
         setAccMsg(`Что-то пошло не так... ${err}`)
       })
   }
 
   function handleExit() {
-    localStorage.removeItem('token')
-    history.push('/')
+    localStorage.removeItem('token');
+    localStorage.removeItem('resSearchMoviesArray');
+    
+    setIsLogged(false);
+    history.push('/');
   }
 
 
@@ -333,33 +355,37 @@ function App() {
     <div className="app">
       <CurrentUserContext.Provider value={currentUser} >
         <Switch>
-          <Route exact path="/">
-            <Main isLogged={isLogged}/> 
-          </Route>
+          <ProtectedRoute 
+            exact path="/" 
+            isLogged={isLogged} 
+            component={Main}>
+          </ProtectedRoute>
 
-          <Route path="/movies">
-            <Movies 
-              isLogged={isLogged} 
-              onKeywordSubmit={onKeywordSubmit} 
-              isPreloaderIsActive={isPreloaderIsActive} 
-              movies={moviesArray} 
-              onMore={handleUpdateMovies} 
-              moreButton={moreButton}
-              notFoundTitle={notFoundTitle}
-              onMovieLike={handleMovieLike}
-              onCheckBox={handleCheckBox}
-            />
-          </Route>
+          <ProtectedRoute 
+            path="/movies"
+            component = {Movies}
+            isLogged ={isLogged} 
+            onKeywordSubmit={onKeywordSubmit} 
+            isPreloaderIsActive={isPreloaderIsActive} 
+            movies={moviesArray} 
+            onMore={handleUpdateMovies} 
+            moreButton={moreButton}
+            notFoundTitle={notFoundTitle}
+            onMovieLike={handleMovieLike}
+            onCheckBox={handleCheckBox}
+            >
+          </ProtectedRoute>
 
-          <Route path="/saved-movies">
-            <SavedMovies 
-              isLogged={true} 
-              movies={savedMoviesArray}
-              onDelete={handleMovieLike}
-              onCheckBox={handleCheckBox}
-              onKeywordSubmit={onKeywordSubmit}
-            />
-          </Route>
+          <ProtectedRoute 
+            path="/saved-movies"
+            component = {SavedMovies}
+            isLogged = {isLogged} 
+            movies={savedMoviesArray}
+            onDelete={handleMovieLike}
+            onCheckBox={handleCheckBox}
+            onKeywordSubmit={onKeywordSubmit}
+            >
+          </ProtectedRoute>
           
           <Route path="/account">
             <Account 

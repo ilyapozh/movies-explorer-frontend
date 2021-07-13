@@ -31,7 +31,7 @@ function Account(props) {
                         <div className="account__name-cont">
                             <label htmlFor="name-input" className="account__name">Имя</label>
                             <input 
-                                className="account__name-input" 
+                                className="account__email-input" 
                                 type="text" 
                                 placeholder={currentUser.name} 
                                 name="name"

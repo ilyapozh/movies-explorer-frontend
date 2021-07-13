@@ -59,9 +59,9 @@
     
 }
 
-.account__name-input::placeholder {
+/* .account__name-input::placeholder {
     color: white;
-}
+} */
 
 .account__exit-but {
     color: #EE3465;
@@ -78,6 +78,16 @@
 
 .account__submit-but_disabled {
     background-color: grey;
+}
+
+.account__exit-but:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.account__submit-but:hover {
+    cursor: pointer;
+    opacity: 0.5;
 }
 
 @media screen and (max-width: 767px) {

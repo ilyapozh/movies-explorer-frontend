@@ -1,6 +1,5 @@
 import React from 'react';
 import './searchForm.css';
-// import {fetchData} from '../../utils/MoviesApi';
 
 function SearchForm(props) {
 

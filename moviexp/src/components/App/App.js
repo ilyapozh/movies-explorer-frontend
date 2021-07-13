@@ -2,7 +2,7 @@ import './App.css';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import React from 'react';
 import Main from '../Main/Main';
-import {Switch, Route, useHistory, Redirect} from 'react-router-dom';
+import {Switch, Route, useHistory} from 'react-router-dom';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Account from '../Acount/Account';
@@ -20,14 +20,18 @@ import {
   getUserInfo,
   updateUserInfo
 } from '../../utils/MainApi';
-import {checkLikedMovies, keywordMoviesSearch} from '../../utils/keywordMoviesSearch'
+import {
+  checkLikedMovies, 
+  keywordMoviesSearch, 
+  keywordSavedMoviesSearch
+} from '../../utils/keywordMoviesSearch'
 
 
 function App() {
   let history = useHistory();
   const [moviesArray, setMoviesArray] = React.useState([]);
   const [initialMoviesArray, setInitialMoviesArray] = React.useState([]);
-  const [isPreloaderIsActive, setPreloaderActivity] = React.useState(false);
+  // const [isPreloaderIsActive, setPreloaderActivity] = React.useState(false);
   const [moreButton, setMoreButton] = React.useState(true);
   const [notFoundTitle, setNotFoundTitle] = React.useState(false);
   const [savedMoviesArray, setSavedMoviesArray] = React.useState([]);
@@ -37,7 +41,7 @@ function App() {
   const [loginError, setLoginError] = React.useState('');
   const [accMsg, setAccMsg] = React.useState('');
 
-
+  
   React.useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -45,24 +49,10 @@ function App() {
       getUserInfo()
         .then( ({currentUserInfo}) => {
           setCurrentUser(currentUserInfo)
-        })
-        .catch(err => console.log(err))
-
-      // setLoginError('')
-      // setRegisterError('')
-    
-      fetchSavedMovies()
-        .then((res) => {
-          const {data} = res;
-          const currentMoviesArray = JSON.parse(localStorage.getItem('resSearchMoviesArray'));
-          setSavedMoviesArray(data)
-          return (checkLikedMovies(currentMoviesArray, data))
-        })
-        .then((arr) => {
-          checkWindowRes(arr);
           history.push('/movies')
         })
-        .catch((err) => console.log(err))
+        .catch(err => console.log(err))
+    
     }
   }, [history]);
 
@@ -95,21 +85,27 @@ function App() {
       setInitialMoviesArray(currentMoviesArray)
       if (window.innerWidth <= 480) {
         setMoviesArray(currentMoviesArray.slice(0,5))
-        checkMoreButton(5)
+        checkMoreButton(5, currentMoviesArray)
       } else if ( (window.innerWidth > 480) && (window.innerWidth < 1280) ) {
         setMoviesArray(currentMoviesArray.slice(0,8))
-        checkMoreButton(8)
+        checkMoreButton(8, currentMoviesArray)
       } else {
         setMoviesArray(currentMoviesArray.slice(0,12))
-        checkMoreButton(12)
+        checkMoreButton(12, currentMoviesArray)
       }
     }
   }
 
-  function checkMoreButton(lastArrayIndex) {
-    const resSearchMoviesArray = JSON.parse(localStorage.getItem("resSearchMoviesArray"))
-    if (resSearchMoviesArray === null) return 
-    if ((resSearchMoviesArray.length - lastArrayIndex) <= 0 ) setMoreButton(false)
+  function checkMoreButton(lastArrayIndex, moviesArr) {
+    console.log(moviesArr.length)
+    console.log(lastArrayIndex)
+    setMoreButton(true)
+    // setPreloaderActivity(false)
+    if (moviesArr === null || moviesArr === undefined) return 
+    if ((moviesArr.length - lastArrayIndex) <= 0 ) {
+      setMoreButton(false)
+      
+    }
   }
 
   function handleUpdateMovies() {
@@ -118,46 +114,50 @@ function App() {
     if (window.innerWidth <= 480) {
       
       setMoviesArray(initialMoviesArray.slice(0, lastArrayIndex + 1))
-      checkMoreButton(lastArrayIndex+1)
+      checkMoreButton(lastArrayIndex+1, moviesArray)
+
     } else if ( (window.innerWidth > 480) && (window.innerWidth < 1280) ) {
       
       setMoviesArray(initialMoviesArray.slice(0, lastArrayIndex + 2))
-      checkMoreButton(lastArrayIndex + 1)
+      checkMoreButton(lastArrayIndex + 1, moviesArray)
     } else {
       
       setMoviesArray(initialMoviesArray.slice(0, lastArrayIndex + 3))    
-      checkMoreButton(lastArrayIndex + 3)
+      checkMoreButton(lastArrayIndex + 3, moviesArray)
     }
-
+    
   }
 
   function onKeywordSubmit(keyword) {
-    setPreloaderActivity(true);
+    // setPreloaderActivity(true);
     const fullMoviesArray = JSON.parse(localStorage.getItem('movieArrayFull'));
     
     if (!fullMoviesArray) {
-      console.log(isPreloaderIsActive)
-      setPreloaderActivity(true);
+      
+      // setPreloaderActivity(true);
       setMoreButton(true);
     
       fetchData(keyword, savedMoviesArray)
         .then((res) => {
-
+          // setPreloaderActivity(true)
           if(res.length === 0) setNotFoundTitle(true);
-          
+  
           checkWindowRes(res)
-
+          
         })
-        .then(() => {setPreloaderActivity(false)})
+        .then((res) => {
+          
+          // setPreloaderActivity(false)
+        })
         
         .catch(err => console.log(err));
     } else {
-      setPreloaderActivity(true);
+     
       const newMovArr = keywordMoviesSearch(keyword, savedMoviesArray);
-      checkWindowRes(newMovArr)
-      console.log(isPreloaderIsActive)
+      checkWindowRes(newMovArr);
+      localStorage.setItem('resSearchMoviesArray', JSON.stringify(newMovArr))
+      
     }
-    setPreloaderActivity(false)
   }
 
 
@@ -251,28 +251,26 @@ function App() {
         
       })
       .catch(err => console.log(err))
-
     }
-     
   }
+
+
 
   function handleRegisterSubmit(data) {
     createUser(data)
-      .then((res) => {
-        console.log(res);
-        setIsLogged(true);
-        setCurrentUser(res.data);
-        history.push('/movies')
-      })
       .then(() => {
-        console.log(isLogged)
-        console.log(currentUser)
+        handleLoginSubmit({
+          email: data.email,
+          password: data.password,
+        })
       })
       .catch((err) => {
         setRegisterError(`Что-то пошло не так... ${err}`)
         console.log(err)
       })
   }
+
+
 
   function handleCheckBox(checked) {
     
@@ -296,13 +294,10 @@ function App() {
       setSavedMoviesArray(savedNewArr);
 
     } else {
-      const curMovArr = JSON.parse(localStorage.getItem('resSearchMoviesArray'));
-      
       fetchSavedMovies()
         .then((res) => {
           const {data} = res;
           setSavedMoviesArray(data)
-          
         })
         .then(() => {
           checkWindowRes(initialMoviesArray)
@@ -333,7 +328,7 @@ function App() {
   function handleAccountSubmit(data) {
     updateUserInfo(data)
       .then((res) => {
-        setAccMsg(`Вы поменяли данные на: ${res.data.name} ; ${res.data.email}`)
+        setCurrentUser(res.data)
         history.push('/movies')
       })
       .catch((err) => {
@@ -350,23 +345,29 @@ function App() {
     history.push('/');
   }
 
+  function handleSavedMoviesSearch(keyword) {
+    const resSavedMovieSearch = keywordSavedMoviesSearch(keyword, savedMoviesArray);
+    setSavedMoviesArray(resSavedMovieSearch);
+  }
+
 
   return (
     <div className="app">
       <CurrentUserContext.Provider value={currentUser} >
         <Switch>
-          <ProtectedRoute 
-            exact path="/" 
-            isLogged={isLogged} 
-            component={Main}>
-          </ProtectedRoute>
 
+          <Route exact path="/"> 
+            <Main 
+              isLogged={isLogged} >
+            </Main>
+          </Route>
+          
           <ProtectedRoute 
             path="/movies"
             component = {Movies}
             isLogged ={isLogged} 
             onKeywordSubmit={onKeywordSubmit} 
-            isPreloaderIsActive={isPreloaderIsActive} 
+            // isPreloaderIsActive={isPreloaderIsActive} 
             movies={moviesArray} 
             onMore={handleUpdateMovies} 
             moreButton={moreButton}
@@ -377,22 +378,28 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute 
-            path="/saved-movies"
+            path = "/saved-movies"
             component = {SavedMovies}
             isLogged = {isLogged} 
-            movies={savedMoviesArray}
-            onDelete={handleMovieLike}
-            onCheckBox={handleCheckBox}
-            onKeywordSubmit={onKeywordSubmit}
+            movies = {savedMoviesArray}
+            onDelete = {handleMovieLike}
+            onCheckBox= {handleCheckBox}
+            onKeywordSubmit = {handleSavedMoviesSearch}
+            >
+          </ProtectedRoute>
+
+          <ProtectedRoute 
+            path = "/account"
+            component = {Account}
+            isLogged = {isLogged} 
+            handleAccountSubmit = {handleAccountSubmit}
+            handleExit = {handleExit}
+            accMsg = {accMsg}
             >
           </ProtectedRoute>
           
           <Route path="/account">
-            <Account 
-              handleAccountSubmit={handleAccountSubmit}
-              handleExit = {handleExit}
-              accMsg = {accMsg}
-            />
+            <Account />
           </Route>
 
           <Route path="/login">
@@ -409,10 +416,10 @@ function App() {
             />
           </Route>
 
-          <Route path="/">
+          <Route path="*">
             <NotFound />
           </Route>
-          
+
         </Switch>
       </CurrentUserContext.Provider>
     </div>

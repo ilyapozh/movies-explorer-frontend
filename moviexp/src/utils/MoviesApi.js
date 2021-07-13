@@ -19,6 +19,10 @@ function fetchData(keyword, savedMoviesArray) {
             const resultArray = keywordMoviesSearch(loweredKeyword, savedMoviesArray);
             return resultArray
         })
+        .then((res) => {
+            console.log(res)
+            localStorage.setItem("resSearchMoviesArray", JSON.stringify(res));
+        })
         
 }
 

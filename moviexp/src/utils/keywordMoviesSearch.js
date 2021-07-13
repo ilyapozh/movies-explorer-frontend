@@ -27,7 +27,7 @@ const keywordMoviesSearch = (keyword, savedMoviesArray) => {
             if (element[param] === null) {
                 return
             }
-            if (( (element[param]).toLowerCase() ).search(keyword) !== -1) {
+            if (( (element[param]).toLowerCase() ).search(keyword.toLowerCase()) !== -1) {
                 resultMoviesArray.push(element) 
             }  
         });
@@ -35,11 +35,31 @@ const keywordMoviesSearch = (keyword, savedMoviesArray) => {
 
     let checkedLikedMovieArr = checkLikedMovies(resultMoviesArray, savedMoviesArray);
     
-    localStorage.setItem("resSearchMoviesArray", JSON.stringify(checkedLikedMovieArr));
+    
 
     return checkedLikedMovieArr;
 
 }
 
+const keywordSavedMoviesSearch = (keyword, savedMoviesArray) => {
 
-export {keywordMoviesSearch, checkLikedMovies}
+    const searchParams = ["nameRU", "nameEN", "director", "country", "year"];
+
+    const resultMoviesArray = [];
+
+    savedMoviesArray.forEach(element => {
+        searchParams.forEach(param => {
+            if (element[param] === null) {
+                return
+            }
+            if (( (element[param]).toLowerCase() ).search(keyword.toLowerCase()) !== -1) {
+                resultMoviesArray.push(element) 
+            }  
+        });
+    });
+
+    return resultMoviesArray;
+}
+
+
+export {keywordMoviesSearch, checkLikedMovies, keywordSavedMoviesSearch}

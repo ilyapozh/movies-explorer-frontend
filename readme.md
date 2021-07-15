@@ -1,5 +1,5 @@
 #Frontend of the moviexp app
 #react app
-#PUBLIC IP FOR BACKEND
+#PUBLIC IP 
 
-api.moviexp.nomoredomains.club
+movie43.nomoredomains.icu

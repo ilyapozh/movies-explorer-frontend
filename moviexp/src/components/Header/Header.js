@@ -33,7 +33,7 @@ function Header(props) {
                     <button type="button" className="header__button-menu" onClick={onMenuClick}/>
                 </>) : 
                 <div className="header__link-container">
-                    <Link to="/register" className="header__link">Регистрация</Link>
+                    <Link to="/signup" className="header__link">Регистрация</Link>
                     <Link to="/login" className="header__link">Войти</Link>
                 </div>
             }

@@ -31,7 +31,8 @@
     font-size: 13px;
     padding-left: 15px;
     line-height: 45px;
-    margin-bottom: 35px;
+    margin-bottom: 5px;
+    color: white;
 }
 
 .login__title {
@@ -64,8 +65,12 @@
     color: #4285F4;
 }
 
+.login__submit-but_disabled {
+    background-color: grey;
+}
+
 @media screen and (max-width: 767px) {
     .login {
-        width: 80%;
+        width: 81%;
     }
 }

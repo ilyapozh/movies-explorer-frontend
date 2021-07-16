@@ -60,7 +60,7 @@ function Register(props) {
 
                     <label className="register__input-label" htmlFor="password-input">Пароль</label>
                     <input 
-                        type="text" 
+                        type="password" 
                         className="register__input" 
                         placeholder="Пароль" 
                         required

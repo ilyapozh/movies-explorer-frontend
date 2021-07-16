@@ -35,11 +35,10 @@ function MoviesCardList(props) {
                 {
                     (!(props.isPrivate) && (props.movies.length !== 0) && (props.moreButton)) &&
                     <button className="moviesCardList__more-button" onClick={handleMoreClick} >Еще</button> 
-                    
                 }
         </div>
-     
     );
-  }
-  
-  export default MoviesCardList;
+}  
+
+
+export default MoviesCardList;

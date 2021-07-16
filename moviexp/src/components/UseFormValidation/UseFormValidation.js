@@ -13,7 +13,7 @@ export function useFormWithValidation() {
     }
 
     function validateName(name) {
-      const re = /(^[a-zA-Z\-]+$)/;
+      const re = /(^[a-zA-Zа-яА-Я\-\s]+$)/;
       return re.test(String(name).toLowerCase())
     }
 
@@ -50,8 +50,6 @@ export function useFormWithValidation() {
       }
       
       setIsValid(target.closest("form").checkValidity());
-
-      
     };
   
     const resetForm = useCallback(

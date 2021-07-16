@@ -1,7 +1,18 @@
 import './moviesCard.css';
-
+import React from 'react';
 
 function MoviesCard(props) {
+    const [duration, setDuration] = React.useState('');
+
+    React.useEffect(() => {
+        const hours = (props.duration)/60; 
+        const rhours = Math.floor(hours);
+        const minutes = (hours - rhours)*60;
+        const rminutes = Math.round(minutes);
+        let duration = `${rhours}ч ${rminutes}м`;
+
+        setDuration(duration);
+    })
 
     function onLikeClick(evt) {
         const curLike = evt.target;
@@ -22,8 +33,7 @@ function MoviesCard(props) {
         const likedMovieName = likedMovie.querySelector(".moviesCard__name").innerText;
 
         props.onDelete(likedMovieName, false)
-    }
-    
+    }  
 
     return ( 
         <li className="moviesCard">
@@ -36,7 +46,7 @@ function MoviesCard(props) {
                         <button type="button" className={props.isLiked ? "moviesCard__like moviesCard__like__color_pink" : "moviesCard__like"} alt="like" onClick={onLikeClick}/>
                     }
                 </div>
-                <p className="moviesCard__time">{props.duration}</p>
+                <p className="moviesCard__time">{duration || props.duration}</p>
             </div>
         </li>
     );

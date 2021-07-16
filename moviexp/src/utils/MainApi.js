@@ -1,3 +1,5 @@
+import {convertMoviesDuration} from './MoviesApi';
+
 function setMovieDataBack(movieData) {
     return({
         "country": (movieData.country || 'country'),
@@ -84,6 +86,7 @@ function fetchSavedMovies() {
                 }
                 return Promise.reject(res.status)
             })
+            
     }
     
     return

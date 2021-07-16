@@ -47,7 +47,7 @@ function Login(props) {
 
                     <label className="login__input-label" htmlFor="password-input">Пароль</label>
                     <input 
-                        type="text" 
+                        type="password" 
                         className="login__input" 
                         placeholder="Пароль" 
                         name="password"

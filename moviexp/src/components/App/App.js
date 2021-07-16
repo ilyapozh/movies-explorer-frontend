@@ -52,7 +52,6 @@ function App() {
           history.push('/movies')
         })
         .catch(err => console.log(err))
-    
     }
   }, [history]);
 
@@ -104,7 +103,7 @@ function App() {
     if (moviesArr === null || moviesArr === undefined) return 
     if ((moviesArr.length - lastArrayIndex) <= 0 ) {
       setMoreButton(false)
-      
+
     }
   }
 
@@ -114,16 +113,16 @@ function App() {
     if (window.innerWidth <= 480) {
       
       setMoviesArray(initialMoviesArray.slice(0, lastArrayIndex + 1))
-      checkMoreButton(lastArrayIndex+1, moviesArray)
+      checkMoreButton(lastArrayIndex+1, initialMoviesArray)
 
     } else if ( (window.innerWidth > 480) && (window.innerWidth < 1280) ) {
       
       setMoviesArray(initialMoviesArray.slice(0, lastArrayIndex + 2))
-      checkMoreButton(lastArrayIndex + 1, moviesArray)
+      checkMoreButton(lastArrayIndex + 1, initialMoviesArray)
     } else {
       
       setMoviesArray(initialMoviesArray.slice(0, lastArrayIndex + 3))    
-      checkMoreButton(lastArrayIndex + 3, moviesArray)
+      checkMoreButton(lastArrayIndex + 3, initialMoviesArray)
     }
     
   }
@@ -143,7 +142,7 @@ function App() {
           if(res.length === 0) setNotFoundTitle(true);
   
           checkWindowRes(res)
-          
+          console.log(res)
         })
         .then((res) => {
           
@@ -180,7 +179,6 @@ function App() {
     const movieData = {};
     
     savedMoviesArray.forEach( savedMovie => {
-      
       if (savedMovie.nameRU.search(movieName) !== -1) {
         Object.assign(movieData, savedMovie)
         return
@@ -329,7 +327,8 @@ function App() {
     updateUserInfo(data)
       .then((res) => {
         setCurrentUser(res.data)
-        history.push('/movies')
+        // history.push('/movies')
+        setAccMsg(`Вы обновили данные на ${res.data.name} и ${res.data.email}`)
       })
       .catch((err) => {
         
